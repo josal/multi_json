@@ -3,7 +3,7 @@ require "multi_json/vendor/ok_json" unless defined?(::OkJson)
 module MultiJson
   module Engines
     class OkJson
-      ParseError = ::OkJson::Error
+      ParseError = ::OkJson::Error unless defined?(::OkJson)
 
       def self.decode(string, options = {}) #:nodoc:
         string = string.read if string.respond_to?(:read)
